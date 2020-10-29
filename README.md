@@ -8,7 +8,7 @@ uniapp 日历插件，可多选，单选
 - 日历可多选，可单选
 - 可选择日期范围
 ## 使用说明
-### html
+### html 示例
 ``` html
 <beauty-calendar ref="calendar" 
     :auto-choose="autoChoose" 
@@ -20,7 +20,7 @@ uniapp 日历插件，可多选，单选
     @change="change">
 </beauty-calendar>
 ```
-### js
+### javascript 示例
 ``` javascript
 import beautyCalendar from '@/components/beauty-calendar/beauty-calendar.vue'
 export default {
@@ -63,5 +63,6 @@ export default {
 |endDate| String | 明天 | 格式为YYYY/MM/DD,单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
 ### 事件说明
 |名称|说明|
+|----|----|
 |change| 返回当前日历选中的日期数组，例如['2020-10-29',]|
 
