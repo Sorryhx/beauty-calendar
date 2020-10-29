@@ -1,0 +1,219 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.calendar-content.data-v-1429bae4 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  z-index: 99;
+}
+.calendar-content .calendar-body.data-v-1429bae4 {
+  height: 800rpx;
+  width: 100%;
+  background-color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+}
+.calendar-content .calendar-body .calendar-header.data-v-1429bae4 {
+  border-bottom-color: #f6f6f6;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 0 40rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.calendar-content .calendar-body .calendar-header .clear.data-v-1429bae4 {
+  color: #007aff;
+}
+.calendar-content .calendar-body .calendar-header .not-clear.data-v-1429bae4 {
+  color: rgba(0, 122, 255, 0.5);
+}
+.calendar-content .calendar-body .calendar-header .confirm.data-v-1429bae4 {
+  color: #007aff !important;
+}
+.calendar-content .calendar-body .calendar-header .not-confirm.data-v-1429bae4 {
+  color: rgba(0, 122, 255, 0.5);
+}
+.calendar-content .calendar-body .calendar-header .title.data-v-1429bae4 {
+  font-size: 32rpx;
+}
+.calendar-content .calendar-body .calendar-header .title .date-range.data-v-1429bae4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 300rpx;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.calendar-content .calendar-body .calendar-picker.data-v-1429bae4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-week.data-v-1429bae4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  height: 70rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 700rpx;
+  border-bottom-color: #f6f6f6;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-week .week.data-v-1429bae4 {
+  width: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll.data-v-1429bae4 {
+  width: 700rpx;
+  height: 610rpx;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .monthAndyear.data-v-1429bae4 {
+  font-size: 32rpx;
+  padding-left: 34rpx;
+  height: 60rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+          align-items: flex-end;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content.data-v-1429bae4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 700rpx;
+  border-bottom-color: #f6f6f6;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-empty-day.data-v-1429bae4 {
+  width: 100rpx;
+  height: 100rpx;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content.data-v-1429bae4 {
+  height: 110rpx;
+  width: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-day.data-v-1429bae4 {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-today.data-v-1429bae4 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border-style: solid;
+  border-width: thin;
+  border-color: #d4d4d4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-disable-day.data-v-1429bae4 {
+  color: #d4d4d4;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-picker-start.data-v-1429bae4 {
+  -webkit-border-top-left-radius: 50%;
+          border-top-left-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+          border-bottom-left-radius: 50%;
+  -webkit-border-top-right-radius: 0;
+          border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+          border-bottom-right-radius: 0;
+  background-color: #007aff;
+  border-color: #007aff;
+  color: #FFFFFF;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-picker-day.data-v-1429bae4 {
+  background-color: #007aff;
+  border-color: #007aff;
+  color: #FFFFFF;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calendar-picker-end.data-v-1429bae4 {
+  -webkit-border-top-left-radius: 0;
+          border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+          border-bottom-left-radius: 0;
+  -webkit-border-top-right-radius: 50%;
+          border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+          border-bottom-right-radius: 50%;
+  background-color: #007aff;
+  color: #FFFFFF;
+  border-color: #007aff;
+}
+.calendar-content .calendar-body .calendar-picker .calendar-scroll .calendar-days-content .calendar-day-content .calnedar-picker-single.data-v-1429bae4 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border-color: #007aff;
+  background-color: #007aff;
+  color: #FFFFFF;
+}
+
