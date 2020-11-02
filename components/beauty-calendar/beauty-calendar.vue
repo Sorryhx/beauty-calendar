@@ -137,7 +137,6 @@ export default{
 			if (this.multi  && this.autoChoose){
 				if (this.startDate != '' && this.endDate != '' && this.startDate < this.endDate && this.startDate.replace(/-/g, '/') >= this.today){
 					this.pickerArray=[this.startDate.replace(/-/g, '/'), this.endDate.replace(/-/g, '/')]
-					console.log(this.pickerArray)
 				}else{
 					this.pickerArray=[this.today, tomorrowDate]
 				}
