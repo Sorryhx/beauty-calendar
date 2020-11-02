@@ -11,7 +11,7 @@
 					<text v-if="pickerArray.length==0">选择日期</text>
 					<text v-else-if="pickerArray.length==1 && multi == false">{{pickerArray[0].slice(5).replace('/','月')+ '日'}}</text>
 					<view class="date-range" v-else>
-						<text v-show="pickerArray[0]==null" style="color: #8F8F94;">开始日期</text>
+						<!-- <view v-show="pickerArray[0]==null" style="color: #8F8F94;">开始日期</view> -->
 						<text v-show="pickerArray[0]!=null">{{pickerArray[0].slice(5).replace('/','月')+ '日'}}</text>
 						<text>-</text>
 						<view v-show="pickerArray[1]==null" style="color: #8F8F94;">结束日期</view>
@@ -40,7 +40,7 @@
 					<block v-for="(v, i) in calendarEmptyTempArray" :key="i">
 						<view class="monthAndyear">{{v[3]}}年{{v[2]}}月</view>
 						<view class="calendar-days-content">
-							<view class="calendar-empty-day" v-for="e in v[0]" :key="e.id"></view>
+							<view class="calendar-empty-day" v-for="(e, i) in v[0]" :key="e.id"></view>
 							<view class="calendar-day-content" v-for="(d, i) in v[4]" :key="i" @click="picker([v[3], v[2], i+1])">
 								<view  :class="{
 									'calendar-day': true,
@@ -133,15 +133,17 @@ export default{
 			this.weekDay = date.getDay()
 			this.today = this.getDate(date)
 			const tomorrowDate = this.getDate(new Date(date.getTime() + 24*60*60*1000))
+			
 			if (this.multi  && this.autoChoose){
-				if (this.startDate != '' && this.endDate != '' && this.startDate < this.endDate && this.startDate > this.today){
-					this.pickerArray=[this.startDate, this.endDate]
+				if (this.startDate != '' && this.endDate != '' && this.startDate < this.endDate && this.startDate.replace(/-/g, '/') >= this.today){
+					this.pickerArray=[this.startDate.replace(/-/g, '/'), this.endDate.replace(/-/g, '/')]
+					console.log(this.pickerArray)
 				}else{
 					this.pickerArray=[this.today, tomorrowDate]
 				}
 			}else if(!this.multi && this.autoChoose){
-				if (this.startDate != '' && this.startDate > this.today){
-					this.pickerArray=[this.startDate]
+				if (this.startDate != '' && this.startDate.replace(/-/g, '/') >= this.today){
+					this.pickerArray=[this.startDate.replace(/-/g, '/')]
 					
 				}else{
 					this.pickerArray=[this.today]
@@ -281,7 +283,7 @@ export default{
 
 <style lang="scss" scoped>
 @mixin border-bottom {
-	border-bottom-color: #f6f6f6;
+	border-bottom-color: #d4d4d4;
 	border-bottom-style: solid;
 	border-bottom-width: thin;
 }

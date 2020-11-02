@@ -27,8 +27,8 @@
 				title: 'beauty-calendar',
 				multi: true,
 				autoChoose: true,
-				startDate: "2020/11/02",
-				endDate: "2020/11/03",
+				startDate: "2020-11-02",
+				endDate: "2020-11-10",
 				rang: 13,
 				autoClear:false
 			}

@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "beauty-calendar": "/components/beauty-calendar/beauty-calendar"
+  }
+}

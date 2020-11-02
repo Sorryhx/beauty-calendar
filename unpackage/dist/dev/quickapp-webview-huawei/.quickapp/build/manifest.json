@@ -1,0 +1,36 @@
+{
+    "minPlatformVersion": 1070,
+    "name": "beauty-calendar",
+    "versionName": "1.0.0",
+    "versionCode": "100",
+    "package": "beauty-calendar",
+    "usingComponents": {},
+    "icon": "assets/icon.png",
+    "type": "webapp",
+    "independentList": [],
+    "subpackages": [],
+    "debug": true,
+    "debugable": true,
+    "global": {
+        "window": {
+            "navigationBarTextStyle": "black",
+            "navigationBarTitleText": "uni-app",
+            "navigationBarBackgroundColor": "#F8F8F8",
+            "backgroundColor": "#F8F8F8"
+        }
+    },
+    "router": {
+        "entry": "pages/index/index",
+        "pages": {
+            "pages/index/index": {
+                "component": "",
+                "info": {
+                    "navigationStyle": "custom",
+                    "usingComponents": {
+                        "beauty-calendar": "components/beauty-calendar/beauty-calendar"
+                    }
+                }
+            }
+        }
+    }
+}
