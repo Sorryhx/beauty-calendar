@@ -40,8 +40,8 @@
 					<block v-for="(v, i) in calendarEmptyTempArray" :key="i">
 						<view class="monthAndyear">{{v[3]}}年{{v[2]}}月</view>
 						<view class="calendar-days-content">
-							<view class="calendar-empty-day" v-for="(e, i) in v[0]" :key="e.id"></view>
-							<view class="calendar-day-content" v-for="(d, i) in v[4]" :key="i" @click="picker([v[3], v[2], i+1])">
+							<view class="calendar-empty-day" v-for="(e) of v[0]" :key="e.id"></view>
+							<view class="calendar-day-content" v-for="(d, i) of v[4]" :key="i" @click="picker([v[3], v[2], i+1])">
 								<view  :class="{
 									'calendar-day': true,
 									'calendar-disable-day': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}`< today,
@@ -111,7 +111,7 @@ export default{
 			month: 1,
 			date: 1,
 			weekDay: 0,
-			calendarEmptyTempArray: [] ,// [月份第一天索引，月份最后一天临时变量, 月份，年份.当月天数]
+			calendarEmptyTempArray: [] ,// [月份第一天索引，月份最后一天, 月份，年份,当月天数]
 			pickerArray:[], // 选择日期的开始与结束
 			pickerStartDate:'',
 			pickerEndDate:'',
@@ -150,8 +150,8 @@ export default{
 				}
 				
 			}
-			const firstDay = new Date(`${this.year}-${this.month}-01`).getDay() //获取本月第一天
-			// 获取接下来月份的数组，用于渲染日历 [月份第一天索引，月份最后一天临时变量, 月份，年份.当月天数]
+			const firstDay = new Date(`${this.year}/${this.month}/01`).getDay() //获取本月第一天
+			// 获取接下来月份的数组，用于渲染日历 [月份第一天索引，月份最后一天, 月份，年份,当月天数]
 			let month // 临时月份
 			let year = this.year
 			for (let i=0; i<this.range; i++){
@@ -173,13 +173,12 @@ export default{
 					this.calendarEmptyTempArray[0] = [firstDay, laterDay, month, year, monthDays]
 				}
 			}
-			
 		},
 		getDate(date){
 			return `${date.getFullYear()}/${this.prefixZero(date.getMonth() + 1)}/${this.prefixZero(date.getDate())}`
 		},
 		updateFebruarydays(year){
-			// 初步估计侦听器只会在组件的created生命周期侦听最初与最终的值，改动函数手动更新，后续慢慢研究
+			// 手动更新2月日期
 			if(year%4==0&&year%100!=0||year%400==0){
 				this.monthDaysArray[1] = 29
 			}else{
@@ -205,7 +204,6 @@ export default{
 		},
 		getTomorrowDate(todayDate, month){
 			const d = todayDate + 1
-			// if (d>)
 		},
 		dateScope(startDateStr, endDateStr){
 			const startTime = new Date(startDateStr).getTime()
@@ -259,7 +257,7 @@ export default{
 					}
 				}
 			}else{
-				this.$emit('change', this.pickerArray)
+				this.$emit('change', [this.pickerArray[0].replace(/\//g, '-')])
 				this.show = false
 				if (this.autoClear){
 					this.clear()
@@ -324,7 +322,7 @@ export default{
 				font-size: 32rpx;
 				.date-range{
 					display: flex;
-					width: 300rpx;
+					width: 310rpx;
 					justify-content: space-between;
 				}
 			}
@@ -362,8 +360,13 @@ export default{
 					display: flex;
 					justify-content: flex-start;
 					flex-wrap: wrap;
+					-webkit-flex-wrap: flex-start;
+					-webkit-box-lines: multiple; /* Safari */
+					// -webkit-box-orient: horizontal;
+					display: -webkit-flex; /* Safari */
+					
 					width: 700rpx;
-					@include border-bottom
+					@include border-bottom;
 					.calendar-empty-day{
 						width: 100rpx;
 						height: 100rpx;
