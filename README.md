@@ -29,7 +29,7 @@ export default {
     return {
       title: 'beauty-calendar',
       multi: true,
-      autoChoose: false,
+      autoChoose: true,
       startDate: "2020/11/02",
       endDate: "2020/11/03",
       rang: 13,
@@ -60,16 +60,18 @@ export default {
 |autoClear|Boolean|true| 点击保存是否自动清除选择|
 |range|Number|13|日历范围，自本月之后的月份数，默认至下年本月|
 |starDate| String | 今天 | 格式为YYYY/MM/DD或YYYY-MM-DD, 单选为选中日期，多选为选中开始日期，默认选择为今天，需要autoChoose = true|
-|endDate| String | 明天 | 格式为YYYY/MM/DD或YYYY-MM-DD,单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
+|endDate| String | 明天 | 格式为YYYY/MM/DD或YYYY-MM-DD(需要与startDate保持格式一致),单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
 ### 事件说明
 |名称|说明|
 |----|----|
 |change| 返回当前日历选中的日期数组，例如['2020-10-29',]|
 
 # 更新记录
+## 1.0.4 (2021-02-02)
+- 修复IOS出现Array size is not a small enough positive integer 问题
 ## 1.0.3 （2020-11-02）
 - 新增可选日期格式YYYY-MM-DD
 - 边框颜色加深（由于手机分辨率较高，会出现PC端颜色正常但手机颜色偏淡的情况）
 - 测试并兼容了支付宝小程序，QQ小程序，字节跳动小程序
 ## 1.0.2 （2020-10-29）
-发布beauty-calendar，1.0.1,1.0.2上传失败
+- 发布beauty-calendar，1.0.1,1.0.2上传失败
