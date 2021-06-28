@@ -37,24 +37,27 @@
 					:scroll-y="true"
 					class="calendar-scroll"
 				>
-					<block v-for="(v, i) in calendarEmptyTempArray" :key="i">
+					<block v-for="(v, index) in calendarEmptyTempArray" :key="index">
 						<view class="monthAndyear">{{v[3]}}年{{v[2]}}月</view>
 						<view class="calendar-days-content">
-							<view class="calendar-empty-day" v-for="(e) of v[0]" :key="e.id"></view>
-							<view class="calendar-day-content" v-for="(d, i) of v[4]" :key="i" @click="picker([v[3], v[2], i+1])">
-								<view  :class="{
-									'calendar-day': true,
-									'calendar-disable-day': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}`< today,
-									'calendar-today': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == today,
-									'calendar-picker-start':  `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[0] && pickerArray.length > 1,
-									'calendar-picker-day': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` > pickerArray[0] && `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` < pickerArray[1],
-									'calendar-picker-end': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[1],
-									'calnedar-picker-single': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[0] && pickerArray.length == 1
-								}" >
-								{{i+1}}
-								</view>
-							</view>
-							
+							<view class="calendar-empty-day" v-for="(e) of whiteDay(index, v)" :key="e.id"></view>
+							 <block v-for="(d, i) of v[4]">
+								<view class="calendar-day-content" v-if="(i + 2) > sliceDisableDay(v) || index > 0" :key="i" @click="picker([v[3], v[2], i+1])">
+									<view  
+									:class="{
+										'calendar-day': true,
+										'calendar-disable-day': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}`< today,
+										'calendar-today': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == today,
+										'calendar-picker-start':  `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[0] && pickerArray.length > 1,
+										'calendar-picker-day': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` > pickerArray[0] && `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` < pickerArray[1],
+										'calendar-picker-end': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[1],
+										'calnedar-picker-single': `${v[3]}/${prefixZero(v[2])}/${prefixZero(i+1)}` == pickerArray[0] && pickerArray.length == 1
+									}" 
+									>
+									{{i+1}}
+									</view>
+								 </view>
+							 </block>
 						</view>
 					</block>
 				</scroll-view>
@@ -121,9 +124,22 @@ export default{
 			show: false
 		}
 	},
-	computed:{
-	},
 	methods:{
+		sliceDisableDay (v) {
+			const today = new Date(this.today)
+			const date = today.getDate()
+			return date - ((date - 1)%7 + v[0])%7
+		},
+		whiteDay (index, v) {
+			if (index > 0) { return v[0] }
+			const today = new Date(this.today)
+			const date = today.getDate()
+			if ((v[0] + date) > 7) {
+				return 0
+			} else {
+				return v[0]
+			}
+		},
 		getCalendar(){
 			const date = new Date()
 			this.year = date.getFullYear()
@@ -377,6 +393,7 @@ export default{
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						position: relative;
 						.calendar-day{
 							width: 100rpx;
 							height: 100rpx;
