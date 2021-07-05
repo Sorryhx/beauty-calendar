@@ -42,7 +42,7 @@
 						<view class="calendar-days-content">
 							<view class="calendar-empty-day" v-for="(e) of whiteDay(index, v)" :key="e.id"></view>
 							 <block v-for="(d, i) of v[4]">
-								<view class="calendar-day-content" v-if="(i + 2) > sliceDisableDay(v) || index > 0" :key="i" @click="picker([v[3], v[2], i+1])">
+								<view class="calendar-day-content" v-if="(i + 2) > sliceDisableDay(v) || index > 0 || date <= 15" :key="i" @click="picker([v[3], v[2], i+1])">
 									<view  
 									:class="{
 										'calendar-day': true,
@@ -134,7 +134,7 @@ export default{
 			if (index > 0) { return v[0] }
 			const today = new Date(this.today)
 			const date = today.getDate()
-			if ((v[0] + date) > 7) {
+			if ((v[0] + date) > 7 && this.date > 15) {
 				return 0
 			} else {
 				return v[0]
