@@ -30,10 +30,11 @@ export default {
       title: 'beauty-calendar',
       multi: true,
       autoChoose: true,
-      startDate: "2020/11/02",
-      endDate: "2020/11/03",
+      startDate: "2021-12-13",
+      endDate: "2021-12-14",
       rang: 13,
-      autoClear:false
+      autoClear:false,
+	  minDate: "2021-12-12"
     }
   },
   onLoad() {

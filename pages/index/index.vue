@@ -2,35 +2,38 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png" @click="show"></image>
 		<view class="text-area">
-			<text class="title">{{title}}</text>
+			<text class="title">{{ title }}</text>
 		</view>
-		<beauty-calendar ref="calendar" 
+		<newCalendar ref="calendar" 
 			:auto-choose="autoChoose" 
 			:multi="multi" 
 			:start-date="startDate" 
 			:end-date="endDate" 
-			:range="rang" 
+			:range="rang"
+			minDate="2021-11-12"
 			:auto-clear="autoClear" 
 			@change="change">
-		</beauty-calendar>
+		</newCalendar>
 	</view>
 </template>
 
 <script>
 	import beautyCalendar from '@/components/beauty-calendar/beauty-calendar.vue'
+	import newCalendar from '@/components/beauty-calendar'
 	export default {
 		components:{
-			beautyCalendar,
+			newCalendar,
+			beautyCalendar
 		},
 		data() {
 			return {
 				title: 'beauty-calendar',
 				multi: true,
 				autoChoose: true,
-				startDate: "2021-02-03",
-				endDate: "2021-02-06",
-				rang: 13,
-				autoClear:false
+				startDate: "2021-12-03",
+				endDate: "2021-12-06",
+				rang: 15,
+				autoClear:true
 			}
 		},
 		onLoad() {
