@@ -25,7 +25,13 @@
 						<view class="days-block-container">
 							<view v-for="(b, blockIndex) in item.blocks" 
 								:key="blockIndex"
-								:class="getDaysClass(item.year, item.month, daysFilter(blockIndex - item.offsets))"
+								:class="{
+									'days-block': true,
+									'days-disabled': `${item.year}-${padZero(item.month)}-${padZero(daysFilter(blockIndex - item.offsets))}` < minDate,
+									'days-picker-start': `${item.year}-${padZero(item.month)}-${padZero(daysFilter(blockIndex - item.offsets))}` === pickerDate[0],
+									'days-picker-end': `${item.year}-${padZero(item.month)}-${padZero(daysFilter(blockIndex - item.offsets))}` === pickerDate[pickerDate.length - 1],
+									'days-picker-center':  (blockIndex - item.offsets) > -1 && (`${item.year}-${padZero(item.month)}-${padZero(daysFilter(blockIndex - item.offsets))}` > pickerDate[0] &&  `${item.year}-${padZero(item.month)}-${padZero(daysFilter(blockIndex - item.offsets))}` < pickerDate[pickerDate.length - 1])
+								}"
 								@tap="chooseDate(item.year, item.month, daysFilter(blockIndex - item.offsets))"
 								>
 								{{ daysFilter(blockIndex - item.offsets)}}
@@ -250,6 +256,8 @@
 			justify-content: space-between;
 			padding: 0rpx 25rpx;
 			margin: 24rpx 0;
+			width: 100%;
+			box-sizing: border-box;
 		}
 		.weeks {
 			display: flex;

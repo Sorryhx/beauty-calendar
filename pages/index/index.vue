@@ -10,7 +10,7 @@
 			:start-date="startDate" 
 			:end-date="endDate" 
 			:range="rang"
-			minDate="2021-11-12"
+			minDate="2021-12-12"
 			:auto-clear="autoClear" 
 			@change="change">
 		</newCalendar>

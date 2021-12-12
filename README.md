@@ -14,13 +14,14 @@ uniapp 日历插件，可多选，单选
     :start-date="startDate" 
     :end-date="endDate" 
     :range="rang" 
+	:minDate="minDate"
     :auto-clear="autoClear" 
     @change="change">
 </beauty-calendar>
 ```
 ### javascript 示例
 ``` javascript
-import beautyCalendar from '@/components/beauty-calendar/beauty-calendar.vue'
+import beautyCalendar from '@/components/beauty-calendar'
 export default {
   components:{
     beautyCalendar,
@@ -59,9 +60,10 @@ export default {
 |multi| Boolean | true | 是否开启多选模式，默认开启|
 |autoChoose|Boolean|false| 是否自动选择指定日期|
 |autoClear|Boolean|true| 点击保存是否自动清除选择|
+|minDate| String | 可选起始日期 | 格式为YYYY-MM-DD今天明天|
 |range|Number|13|日历范围，自本月之后的月份数，默认至下年本月|
-|starDate| String | 今天 | 格式为YYYY/MM/DD或YYYY-MM-DD, 单选为选中日期，多选为选中开始日期，默认选择为今天，需要autoChoose = true|
-|endDate| String | 明天 | 格式为YYYY/MM/DD或YYYY-MM-DD(需要与startDate保持格式一致),单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
+|starDate| String | 今天 | 格式为YYYY-MM-DD, 单选为选中日期，多选为选中开始日期，默认选择为今天，需要autoChoose = true|
+|endDate| String | 明天 | 格式为YYYY-MM-DD(需要与startDate保持格式一致),单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
 ### 事件说明
 |名称|说明|
 |----|----|
