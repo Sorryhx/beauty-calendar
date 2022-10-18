@@ -15,6 +15,7 @@ uniapp 日历插件，可多选，单选
     :end-date="endDate" 
     :range="rang" 
 	:minDate="minDate"
+	:cur-show="curShow"
     :auto-clear="autoClear" 
     @change="change">
 </beauty-calendar>
@@ -34,6 +35,7 @@ export default {
       startDate: "2021-12-13",
       endDate: "2021-12-14",
       rang: 13,
+	  curShow: 0,
       autoClear:false,
 	  minDate: "2021-12-12"
     }
@@ -62,6 +64,7 @@ export default {
 |autoClear|Boolean|true| 点击保存是否自动清除选择|
 |minDate| String | 可选起始日期 | 格式为YYYY-MM-DD今天明天|
 |range|Number|13|日历范围，自本月之后的月份数，默认至下年本月|
+|curShow|Number|0|配合minDate，range使用，展示从minDate为索引0计算的第n月|
 |starDate| String | 今天 | 格式为YYYY-MM-DD, 单选为选中日期，多选为选中开始日期，默认选择为今天，需要autoChoose = true|
 |endDate| String | 明天 | 格式为YYYY-MM-DD(需要与startDate保持格式一致),单选无效，多选为选中结束日期，默认选择为明天，需要autoChoose = true |
 ### 事件说明

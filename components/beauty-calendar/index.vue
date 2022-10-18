@@ -19,8 +19,9 @@
 				<scroll-view
 					:scroll-y="true"
 					class="days"
+					:scroll-into-view="`m_${curShow}`"
 				>
-					<view v-for="(item, index) in days" :key="index">
+					<view v-for="(item, index) in days" :key="index" :id="`m_${index}`">
 						<view class="days-block-header">{{ item.year + '年' + item.month  + '月'}}</view>
 						<view class="days-block-container">
 							<view v-for="(b, blockIndex) in item.blocks" 
@@ -76,6 +77,10 @@
 			autoClear:{
 				type: Boolean,
 				default: true
+			},
+			curShow: {
+				type: Number,
+				default: 0
 			},
 			minDate: {
 				tyoe: String,

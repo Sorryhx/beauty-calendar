@@ -11,6 +11,7 @@
 			:end-date="endDate" 
 			:range="rang"
 			minDate="2021-12-12"
+			:cur-show="curShow"
 			:auto-clear="autoClear" 
 			@change="change">
 		</newCalendar>
@@ -33,11 +34,11 @@
 				startDate: "2021-12-03",
 				endDate: "2021-12-06",
 				rang: 15,
+				curShow: 12,
 				autoClear:true
 			}
 		},
 		onLoad() {
-			
 		},
 		methods: {
 			show(){
