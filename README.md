@@ -14,8 +14,8 @@ uniapp 日历插件，可多选，单选
     :start-date="startDate" 
     :end-date="endDate" 
     :range="rang" 
-	:minDate="minDate"
-	:cur-show="curShow"
+	  :minDate="minDate"
+	  :cur-show="curShow"
     :auto-clear="autoClear" 
     @change="change">
 </beauty-calendar>
@@ -35,9 +35,9 @@ export default {
       startDate: "2021-12-13",
       endDate: "2021-12-14",
       rang: 13,
-	  curShow: 0,
+      curShow: 0,
       autoClear:false,
-	  minDate: "2021-12-12"
+      minDate: "2021-12-12"
     }
   },
   onLoad() {
